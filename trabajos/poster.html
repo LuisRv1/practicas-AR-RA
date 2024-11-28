@@ -11,16 +11,16 @@
      <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"> 
 
         <a-assets>
-            <a-asset-item id="estadio" src="modelos/pokemon_stadium.glb"></a-asset-item>
-            <a-asset-item id="plaza" src="modelos/arc_de_triomphe.glb"></a-asset-item>
+            <a-asset-item id="porche" src="porsche911.glb"></a-asset-item>
+            <a-asset-item id="future" src="futurecar.glb"></a-asset-item>
         </a-assets>
 
-        <a-marker type="pattern" url="marcadores/pattern-logo_soda.patt">
-                <a-entity gltf-model="#estadio" rotation="0 90 -90" position="-0.829 0.500 0" scale="0.3 0.3 0.3"></a-entity>
+        <a-marker type="pattern" url="pattern-marcador1.patt">
+                <a-entity gltf-model="#porche" rotation="0 90 -90" position="-0.829 0.500 0" scale="0.3 0.3 0.3"></a-entity>
         </a-marker>
         
-        <a-marker type="pattern" url="marcadores/pattern-disco_amor.patt">
-            <a-entity gltf-model="#plaza" rotation="0 90 -90" position="-0.829 0.500 0" scale="0.001 0.001 0.001"></a-entity>
+        <a-marker type="pattern" url="pattern-marcador2.patt">
+            <a-entity gltf-model="#future" rotation="0 90 -90" position="-0.829 0.500 0" scale="0.001 0.001 0.001"></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity> 
