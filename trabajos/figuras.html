@@ -2,33 +2,86 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>AR con A-Frame y AR.js</title>
+        <title>AR con A-Frame y AR.js con Música para Cada Marcador</title>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
         <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
 
+        <!-- Reproductores de audio ocultos, uno para cada marcador -->
+        <audio id="audio1">
+            <source src="musica1.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <audio id="audio2">
+            <source src="musica2.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <audio id="audio3">
+            <source src="musica3.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <audio id="audio4">
+            <source src="musica4.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
         <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"> 
 
-            <a-marker type="pattern" url="pattern-marcador1.patt">
-                <a-circle position="0 0.5 0" rotation="-57 -5 -4.5" radius-bottom="0.5" height="1" scale="0.7 1 0.78"></a-circle>
+            <!-- Luz para iluminar los objetos -->
+            <a-light type="directional" position="1 1 1" intensity="1" target="#marker"></a-light>
+
+            <!-- Primer marcador con círculo pegado -->
+            <a-marker type="pattern" url="pattern-marcador1.patt" id="marker1">
+                <a-circle position="0 0 0" rotation="0 0 0" radius="1" color="red"></a-circle>
             </a-marker>    
 
-            <a-marker type="pattern" url="pattern-marcador2.patt">
-                <a-box position="0 0.5 0" rotation="-57 -5 -4.5" radius-bottom="0.5" height="1" scale="0.7 1 0.78"></a-box>
+            <!-- Segundo marcador con caja pegada -->
+            <a-marker type="pattern" url="pattern-marcador2.patt" id="marker2">
+                <a-box position="0 0 0" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
             </a-marker>    
 
-            <a-marker type="pattern" url="pattern-marcador3.patt">
-                <a-cone position="0 0.5 0" rotation="-57 -5 -4.5" radius-bottom="0.5" height="1" scale="0.7 1 0.78"></a-cone>
+            <!-- Tercer marcador con cono pegado -->
+            <a-marker type="pattern" url="pattern-marcador3.patt" id="marker3">
+                <a-cone position="0 0 0" rotation="0 0 0" radius-bottom="0.5" height="1" scale="1 1 2" color="green"></a-cone>
             </a-marker>    
 
-            <a-marker type="pattern" url="pattern-marcador4.patt">
-                <a-sphere position="0 0.5 0" rotation="-57 -5 -4.5" radius-bottom="0.5" height="1" scale="0.7 1 0.78"></a-sphere>
+            <!-- Cuarto marcador con esfera pegada -->
+            <a-marker type="pattern" url="pattern-marcador4.patt" id="marker4">
+                <a-sphere position="0 0 0" rotation="0 0 0" radius="1" scale="1 1 1" color="yellow"></a-sphere>
             </a-marker>    
 
-            <a-entity camera></a-entity> 
+            <!-- Cámara con control para asegurar que veamos los objetos bien -->
+            <a-entity camera position="0 0 3" look-controls="pointerLockEnabled: true;"></a-entity>
 
         </a-scene>
+
+        <script>
+            // Función para reproducir música cuando un marcador es detectado
+            function playMusic(markerId, audioId) {
+                var audio = document.getElementById(audioId);
+                var marker = document.querySelector(markerId);
+
+                // Reproducir música cuando el marcador es encontrado
+                marker.addEventListener('markerFound', function() {
+                    audio.play();  // Reproducir música
+                });
+
+                // Pausar música cuando el marcador es perdido
+                marker.addEventListener('markerLost', function() {
+                    audio.pause();  // Detener música
+                });
+            }
+
+            // Asignar música a cada marcador
+            playMusic('#marker1', 'audio1');
+            playMusic('#marker2', 'audio2');
+            playMusic('#marker3', 'audio3');
+            playMusic('#marker4', 'audio4');
+        </script>
         
     </body>
 </html>
