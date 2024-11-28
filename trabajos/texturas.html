@@ -15,7 +15,7 @@
 
             <!-- Primer marcador con círculo pegado -->
             <a-marker type="pattern" url="pattern-marcador1.patt">
-                <a-circle position="0 0 0" rotation="0 0 0" radius="2" color="red"></a-circle>
+                <a-circle position="0 0 0" rotation="0 0 0" radius="1" color="red"></a-circle>
             </a-marker>    
 
             <!-- Segundo marcador con caja pegada -->
@@ -33,11 +33,10 @@
                 <a-sphere position="0 0 0" rotation="0 0 0" radius="1" scale="1 1 1" color="yellow"></a-sphere>
             </a-marker>    
 
-            <!-- Configuración de la cámara -->
-            <a-entity camera position="0 0 3"></a-entity> 
+            <!-- Cámara con control para asegurar que veamos los objetos bien -->
+            <a-entity camera position="0 0 3" look-controls="pointerLockEnabled: true;"></a-entity>
 
         </a-scene>
         
     </body>
 </html>
-
