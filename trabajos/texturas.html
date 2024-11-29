@@ -10,27 +10,24 @@
 
         <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"> 
 
-            <!-- Primer marcador con círculo pegado -->
+        
             <a-marker type="pattern" url="pattern-marcador1.patt">
-                <a-circle position="0 4 -1" rotation="-57 -5 -4.5" radius="4" color="red"></a-circle>
+                <a-circle position="0 0 0" rotation="60 2 0 " scale="0.3 0.3 0.3" color="red"></a-circle>
             </a-marker>    
 
-            <!-- Segundo marcador con caja pegada -->
+         
             <a-marker type="pattern" url="pattern-marcador2.patt">
-                <a-box position="0 3 -1" rotation="-57 -5 -4.5" scale="0.5 0.5 0.5" color="blue"></a-box>
+                <a-box position="1.455 -12.310 -8.608" rotation="50 8 10" scale="5 5 5" color="blue"></a-box>
             </a-marker>    
 
-            <!-- Tercer marcador con cono pegado -->
             <a-marker type="pattern" url="pattern-marcador3.patt">
-                <a-cone position="0 1 -1" rotation="-20 -5 -4.5" radius-bottom="0.5" height="1" scale="0.5 0.5 0.5" color="green"></a-cone>
+                <a-cone position="0 -2.271 2.184" rotation="0 0 0" radius-bottom="0.5" height="1" scale="5 5 5" color="green"></a-cone>
             </a-marker>    
 
-            <!-- Cuarto marcador con esfera pegada -->
             <a-marker type="pattern" url="pattern-marcador4.patt">
-                <a-sphere position="0 1 -1" rotation="-57 -5 -4.5" radius="1" scale="0.8 0.8 0.8" color="blue"></a-sphere>
+                <a-sphere position="0 -0.411 1.740" rotation="0 0 0" radius="1" scale="1 1 1" color="blue"></a-sphere>
             </a-marker>    
 
-            <!-- Cámara con control para asegurar que veamos los objetos bien -->
             <a-entity camera position="0 0 5" look-controls="pointerLockEnabled: true;"></a-entity>
 
         </a-scene>
