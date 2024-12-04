@@ -11,9 +11,17 @@
         <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"> 
 
         
-            <a-marker type="pattern" url="pattern-marcador2.patt">
-                <a-dodecahedron position="0 0 0" radius: 2" color="red"></a-dodecahedron>
-            </a-marker>    
+          <a-marker type="pattern" url="pattern-marcador2.patt">
+           <a-dodecahedron position="0 0 0"
+            material="
+            src: url( );
+            roughnessMap: url(texturas/Planks037A_2K-JPG/Planks037A_2K-JPG_Roughness.jpg);
+            normalMap: url(texturas/Planks037A_2K-JPG/Planks037A 2K-JPG NormalGL.jpg);
+            repeat: 0.5 0.5;"
+            scale="0.5 0.5 0.5">
+            </a-dodecahedron>
+        
+        </a-marker>  
 
             <a-marker type="pattern" url="pattern-marcador3.patt">
                 <a-box position="0 0 0" rotation="50 8 10" scale="1 1 1" color="blue"></a-box>
